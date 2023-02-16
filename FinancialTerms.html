@@ -1,0 +1,1877 @@
+<html>
+<head>
+	<title>EIS Document</title>
+<script language="javascript">
+setInterval("window.clipboardData.setData('text','')",20);
+if (document.layers) 
+{
+	document.captureEvents(Event.MOUSEDOWN);
+	document.onmousedown=clickNS;        
+}
+else
+{
+	document.onmousedown=clickNS;
+	document.oncontextmenu=clickIE;
+}
+function clickIE()
+{
+	
+	if (document.all) 
+	{
+		
+		return false;
+	}	
+}   	
+function clickNS(e)
+{
+		  var shiftPressed=0;
+	  	  
+	 	  if (navigator.appName=="Netscape")
+		  {
+		       shiftPressed=(e.modifiers-0>3);		       
+		  }     
+		  else
+		  { 
+		  	shiftPressed=event.shiftKey;
+		  }
+		  
+		  if (shiftPressed)
+		  {
+		  	//windowopen("Shift-click is disabled.",300)
+		   	return false;
+		  }	
+
+	if(document.layers||(document.getElementById && !document.all))
+	{
+		
+		if(parseInt(navigator.appVersion)>=5)
+	  	{
+	  		if (e.which==2||e.which==3) 
+			{
+				return false;	
+			}	
+	  		else if(e.which == 1)
+	  		{	
+	  			
+	  			if(e.target.data==undefined)
+				{
+					return false;				
+				}			
+				else
+				{
+					
+					if(parent.logo==undefined)
+					{
+						top.focus();
+						return false;
+					}
+					else
+					{	
+						parent.logo.focus();					
+						return false;			
+					}	
+				}
+			}	
+		 }
+			 
+		 if (navigator.appName == "Netscape")
+		 {
+		 	if (e.which==2||e.which==3) 
+			{
+				return false;	
+			}
+		 	else if(e.which == 1)
+		 	{
+		 		
+			 	if(e.target=="")
+				{
+					if(parent.logo==undefined)
+					{
+						top.focus();
+						return false;
+					}
+					else
+					{	
+						parent.logo.focus();					
+						return false;			
+					}	
+					
+				}	
+				else
+				{
+					return true;
+				}
+			}		
+		 }		
+	}
+}
+function disablekeys(e)
+{
+	
+		  var shiftPressed=0;
+	  	  //alert("in");
+	 	  if (navigator.appName=="Netscape")
+		  {
+		       shiftPressed=(e.modifiers-0>3);		       
+		  }     
+		  else
+		  { 
+		  	shiftPressed=event.shiftKey;
+		  }
+		  
+		  if (shiftPressed)
+		  {
+		  	//windowopen("Shift-click is disabled.",300);
+		   	return false;
+		  }	
+	
+	if (parseInt(navigator.appVersion)>=5)
+	{
+	
+		if(e.which==16 || e.which==17 || e.which==18 || e.which==93)
+		{
+			if(top.logo==undefined)
+			{
+				top.focus();
+				return false;
+			}
+			else
+			{	
+				top.logo.focus();					
+				return false;			
+			}
+		}		
+					
+	}
+	
+	else if(navigator.appName == 'Microsoft Internet Explorer')
+	{	
+		 // ALT combination
+		if (event.altKey == true)
+		{
+		 switch(event.keyCode)
+		 {
+		  case 36: // ALT+HOME
+		    event.keyCode=0; 
+		    event.returnValue=false;
+		    event.cancelBuble=true;
+		    //windowopen("Please click the Home button.",300);
+		    break;
+		
+		
+		  case 37: // ALT+LEFT ARROW
+		  case 39: // ALT+RIGHT ARROW
+		    event.returnValue=false;
+		    break;
+		 }
+		}
+		
+		// CTRL combination    
+		if (event.ctrlKey == true)
+		{
+			
+		 switch(event.keyCode)
+		 {
+		  case 42: //printscreen key
+		  case 65: // CTRL+A
+		  case 67: // CTRL+C	
+		  case 66: // CTRL+B
+		  case 68: // CTRL+D
+		  case 69: // CTRL+E
+		  case 70: // CTRL+F
+		  case 72: // CTRL+H    
+		  case 73: // CTRL+I
+		  case 82: // CTRL+R
+		  case 76: // CTRL+L
+		  case 78: // CTRL+N  
+		  case 79: // CTRL+O  
+		  case 80: // CTRL+P
+		  case 87: // CTRL+W  
+		    event.keyCode=0;  
+		    event.returnValue=false;
+		    event.cancelBuble=true;
+		    break;
+		 }
+		}
+		
+		// SHIFT combination    
+		if (event.shiftKey == true)
+		{
+		 switch(event.keyCode)
+		 {
+		  case 121: // SHIFT+F10
+		    event.returnValue=false;
+		    break;
+		 }
+		}
+		
+		// Single keys
+		switch(event.keyCode)
+		{
+			
+		 case 116: // F5
+		 case 122: // F11
+		    event.keyCode=0; 		  
+		    event.returnValue=false;
+		    break;
+		}
+		
+		
+		
+		// ENTER key
+		if(event.srcElement.type=="text" || event.srcElement.type=="checkbox" || event.srcElement.type=="radio")
+		{
+		 if(event.keyCode==13)
+		 {
+		  event.keyCode=0;  
+		  event.returnValue=false;
+		 }
+		}
+         }
+		
+}
+document.onkeydown=disablekeys
+
+//for NS
+
+function NNKeyCap(thisOne) 
+{
+	
+	if (thisOne.which == 0 || thisOne.modifiers==2 || thisOne.modifiers==4)
+	{
+		if(top.logo==undefined)
+		{
+			top.focus();
+			return false;
+		}
+		else
+		{	
+			top.logo.focus();					
+			return false;			
+		}       	
+   	}
+}
+
+
+if (navigator.appName == 'Netscape') 
+{	
+	window.onKeyPress = NNKeyCap;
+	window.captureEvents(Event.KEYPRESS);
+}
+function CloseForm(Response) 
+{
+window.opener.ModalDialog.value = Response;
+window.close();
+}
+function disableselect(e){
+return false
+}
+
+function reEnable(){
+return true
+}
+
+//if IE4+
+document.onselectstart=new Function ("return false")
+
+//if NS6
+if (window.sidebar){
+document.onmousedown=disableselect
+document.onclick=reEnable
+}
+</script>
+</head>
+<body bgcolor=OldLace>
+
+
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 9">
+
+<link rel=File-List href="./Financial%20Terminology_files/filelist.xml">
+<style id="Financial Terminology_13460_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font513460
+	{color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;}
+.font613460
+	{color:green;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;}
+.font713460
+	{color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;}
+.font813460
+	{color:green;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;}
+.xl2413460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl2513460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:maroon;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl2613460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl2713460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl2813460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:maroon;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl2913460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl3013460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl3113460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl3213460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:green;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl3313460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:maroon;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl3413460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	background:#969696;
+	mso-pattern:auto none;
+	white-space:nowrap;}
+.xl3513460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl3613460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl3713460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Trebuchet MS", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--The following information was generated by Microsoft Excel's Publish as Web
+Page wizard.-->
+<!--If the same item is republished from Excel, all information between the DIV
+tags will be replaced.-->
+<!----------------------------->
+<!--START OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD -->
+<!----------------------------->
+
+<div id="Financial Terminology_13460" align=center x:publishsource="Excel">
+
+<table x:str border=0 cellpadding=0 cellspacing=0 width=948 class=xl2413460
+ style='border-collapse:collapse;table-layout:fixed;width:711pt'>
+ <col class=xl2413460 width=255 style='mso-width-source:userset;mso-width-alt:
+ 9325;width:191pt'>
+
+ <col class=xl2413460 width=693 style='mso-width-source:userset;mso-width-alt:
+ 25344;width:520pt'>
+ <tr height=25 style='height:18.75pt'>
+  <td height=25 class=xl3413460 width=255 style='height:18.75pt;width:191pt'>Financial
+  Terms</td>
+  <td class=xl3413460 width=693 style='border-left:none;width:520pt'>Description</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>ACCOUNT</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><span style="mso-spacerun: yes"> </span>An arrangement by which
+  an organization accepts a customer's financial asset and holds them on behalf
+  of the customer at his or her discretion. <br>
+  </td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>ANALYST</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A financial professional&nbsp;who has expertise in evaluating
+  investments and puts together&nbsp;buy, sell and hold recommendations on
+  securities</td>
+
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>ASSET</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A resource having economic value that an individual, corporation
+  or country&nbsp;owns or controls&nbsp;with the expectation that
+  it&nbsp;will&nbsp;provide future benefit.</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>ASSET
+  CLASS</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A specific category of assets or investments, such as stocks,
+  bonds, cash,&nbsp;international securities&nbsp;and real estate.&nbsp;Assets
+  within the same class generally exhibit similar characteristics, behave
+  similarly in the marketplace, and are subject to the same laws and
+  regulations.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>BENCHMARK</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A standard against which the performance of&nbsp;a security,
+  index or investor&nbsp;can be measured.</td>
+
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>BOND</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A debt investment with which the investor loans money to an
+  entity (company or government) that borrows the funds for a defined period of
+  time at a specified interest rate</td>
+ </tr>
+ <tr class=xl2513460 height=20 style='height:15.0pt'>
+  <td height=20 class=xl2813460 style='height:15.0pt;border-top:none'>BOND
+  EXCHANGES in USA</td>
+
+  <td class=xl2813460 style='border-top:none;border-left:none'>&nbsp;</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>BOND
+  RATING</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A specification of&nbsp;a bond issuer's&nbsp;probability of
+  defaulting&nbsp;based on an analysis of the issuer's financial condition and
+  profit potential. Bond rating services are provided by Standard &amp; Poor's,
+  Moody's Investors Service, and Fitch Investors Service</td>
+
+ </tr>
+ <tr class=xl2513460 height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>BOOK
+  VALUE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The value at which an asset is carried on a balance sheet .In
+  other words, the cost of an asset minus accumulated depreciation.</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>BROKER</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>An individual or firm that charges a fee or commission for
+  executing buy and sell orders submitted by an investor</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>BROKERAGE
+  ACCOUNT</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>An arrangement between an <font class=font613460>investor</font><font
+  class=font513460> and a licensed </font><font class=font613460>brokerage</font><font
+  class=font513460> firm that allows the investor to deposit funds with the
+  firm and place investment orders through the brokerage, which then carries
+  out the transactions on the investor's behalf. The investor owns the assets
+  contained in the brokerage account and must usually claim as income any
+  capital gains&nbsp;he or she&nbsp;incurs from the account.</font></td>
+
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>BROKERAGE
+  FIRM</td>
+  <td class=xl2613460 style='border-top:none;border-left:none'>The firm which
+  use the brokers to invest the investors money in various asset</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>CALLABLE
+  BOND</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A bond that can be redeemed by the issuer prior to its maturity.
+  Usually a premium is paid to the bond owner when the bond is called. Also
+  known as a &quot;redeemable bond&quot;.</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>CASH</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="Legal tender or coins that can be used in exchange goods, debt or services. Sometimes also including the value of assets that can be converted into cash immediately, as reported by a company. ">Legal
+  tender or coins that can be used in exchange goods, debt or services.
+  Sometimes also including the value of assets that can be converted into cash
+  immediately, as reported by a company. </td>
+ </tr>
+
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>CASH FLOW</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A revenue or expense stream that changes a cash
+  account&nbsp;over a given period. Cash in-flows usually&nbsp;arise from one
+  of three activities - financing, operations or investing - though they also
+  occur as a result of donations or gifts in the case of personal finance. Cash
+  out-flows result from expenses or&nbsp;investments. This holds true for both
+  business and personal finance.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>CINS</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><span style="mso-spacerun: yes"> </span>Foreign securities have
+  a similar number as CUSIP called the &quot;CINS number&quot;.</td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl2613460 style='height:105.0pt;border-top:none'>COMMODITY</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The basic idea is that there is little differentiation
+  between&nbsp;a commodity&nbsp;coming from one producer and the same commodity
+  from another producer&nbsp;- a barrel of oil is basically the same product,
+  regardless of the producer. Compare this to, say, electronics, where the
+  quality and features of a given product will be completely different
+  depending on the producer. Some traditional examples of commodities include
+  grains, gold,&nbsp;beef, oil and natural gas. More recently, the definition
+  has expanded to include&nbsp;financial products such as foreign currencies
+  and indexes.&nbsp;Technological advances have also&nbsp;led to new types of
+  commodities being exchanged in the marketplace: for example, cell phone
+  minutes and bandwidth.</td>
+
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2813460 style='height:15.0pt;border-top:none'>COMMODITY
+  EXCHANGES in USA</td>
+  <td class=xl2613460 style='border-top:none;border-left:none'>&nbsp;</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>COMMON
+  STOCK</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A security that represents ownership in a corporation. Holders
+  of common stock exercise control by electing a board of directors and voting
+  on corporate policy. Common stockholders are on the bottom of the priority
+  ladder for ownership structure. In the event of liquidation common
+  shareholders have rights to a company's assets only after bondholders,
+  preferred shareholders, and other debt holders have been paid in full.</td>
+
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'
+  x:str="CONVERTIBLE ">CONVERTIBLE </td>
+  <td class=xl2913460 style='border-top:none;border-left:none'>Securities,
+  usually bonds or preferred shares, that can be converted into common stocks</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>CONVERTIBLE
+  BOND</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A bond that can be converted into a predetermined amount of the
+  company's equity at certain times during its life, usually at the discretion
+  of the bondholder. Convertibles are sometimes called &quot;CVs&quot;.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>COUPON</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The <font class=font613460>interest rate</font><font
+  class=font513460> stated on a </font><font class=font613460>bond</font><font
+  class=font513460> when it's issued. The coupon is typically paid
+  semiannually.</font></td>
+
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>CREDIT
+  RATING</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>An assessment of the <font class=font613460>credit worthiness</font><font
+  class=font513460> of individuals and corporations. It is based upon the
+  history of borrowing and </font><font class=font613460>repayment</font><font
+  class=font513460>, as well as the availability of assets and extent of
+  liabilities.</font></td>
+ </tr>
+
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>CREDIT
+  RISK</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The possibility of a loss occurring due to the failure to meet
+  contractual debt obligation</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>CURRENCY</td>
+  <td class=xl3013460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:black;text-decoration:
+  none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>Money
+  circulated within an economy, including coins and paper notes.</span></a></td>
+
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2913460 style='height:30.0pt;border-top:none'>CURRENCY
+  FORWARD</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A forward contract in the <font class=font613460>forex market</font><font
+  class=font513460> that locks in the price at which an entity can buy or sell
+  a </font><font class=font613460>currency</font><font class=font513460> on a
+  future date. Also known as &quot;outright forward currency transaction&quot;,
+  &quot;forward outright&quot; or &quot;FX forward&quot;.</font></td>
+
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>CUSIP</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>An identification&nbsp;number&nbsp;assigned to all <font
+  class=font613460>stocks</font><font class=font513460> and registered bonds.
+  The Committee on Uniform </font><font class=font613460>Securities</font><font
+  class=font513460> Identification Procedures (CUSIP) oversees the entire CUSIP
+  system. This system is used in the U.S. and Canada.</font></td>
+
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl2613460 style='height:105.0pt;border-top:none'>DERIVATIVE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>In finance,&nbsp;a security whose price is dependent upon or
+  derived from&nbsp;one or more underlying assets.&nbsp;The derivative itself
+  is merely a contract between two or more parties. Its&nbsp;value is
+  determined&nbsp;by fluctuations&nbsp;in the underlying asset.&nbsp;The most
+  common underlying assets include&nbsp;stocks,
+  bonds,&nbsp;commodities,&nbsp;currencies, interest rates and market indexes.
+  Most derivatives are characterized by high leverage.&nbsp;Futures contract
+  forward contracts, options and swaps&nbsp;are the most common types of
+  derivatives. Because derivatives are just contracts, just about anything
+  can&nbsp;be used as an underlying asset. There are even derivatives based on
+  weather data, such as the amount of rain or the number of sunny days in a
+  particular region.</td>
+
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>DISCOUNT</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="The condition of the price of a bond&nbsp;that is lower than par. The discount equals the&nbsp;difference between the price paid for a security and the security's&nbsp;par value.For example, if a bond with a par value of $1,000 is currently selling for $990 dollars, it is selling at a discount. "><a
+  href="" target="_blank"><span style='color:windowtext;text-decoration:none;
+  font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>The condition of
+  the price of a bond&nbsp;that is lower than par. The discount equals
+  the&nbsp;difference between the price paid for a security and the
+  security's&nbsp;par value.For example, if a bond with a par value of $1,000
+  is currently selling for $990 dollars, it is selling at a discount. </span></a></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>DIVIDEND</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>Distribution of a portion of a company's earnings, decided by
+  the <font class=font613460>board of directors</font><font class=font513460>,
+  to a class of its shareholders. The dividend is most often quoted&nbsp;in
+  terms of the dollar amount each share receives (i.e. </font><font
+  class=font613460>dividends</font><font class=font513460> per share or DPS).
+  It can also be quoted in terms of a percent of the current market price,
+  referred to as dividend yield.</font></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2913460 style='height:45.0pt;border-top:none'>DOW JONES
+  INDUSTRIAL AVERAGE</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The <font class=font613460>Dow Jones Industrial Average</font><font
+  class=font513460> is a price-weighted average of 30 significant stocks traded
+  on the </font><font class=font613460>New York Stock Exchange</font><font
+  class=font513460> and the Nasdaq. The DJIA was invented by Charles Dow back
+  in 1896.When the TV networks say &quot;the market is up today&quot;, they are
+  generally referring to the Dow. </font></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl2613460 style='height:75.0pt;border-top:none'>EQUITY</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>Equity is a term whose meaning depends very much on the context.
+  In general, you can think of equity as ownership in any asset after all debts
+  associated with that asset are paid off. For example, a car or house with no
+  outstanding debt is considered the owner's equity since he or she can readily
+  sell the items&nbsp;for cash.&nbsp;Stocks are equity because they represent
+  ownership of a company, whereas bonds are classified as debt because they
+  represent an obligation to pay and not ownership of assets.&nbsp;&nbsp;&nbsp;</td>
+ </tr>
+ <tr class=xl2513460 height=20 style='height:15.0pt'>
+  <td height=20 class=xl2813460 style='height:15.0pt;border-top:none'>EQUITY
+  EXCHANGES IN USA</td>
+  <td class=xl2813460 style='border-top:none;border-left:none'>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>EQUITY
+  INDEX</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A statistical measure of change in an economy or a <font
+  class=font613460>securities</font><font class=font513460> market. In the case
+  of </font><font class=font613460>financial markets</font><font
+  class=font513460>, an index is essentially an imaginary portfolio of
+  securities representing a particular market or a portion of it.</font></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>EXCHANGE
+  RATE</td>
+
+  <td class=xl3013460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:black;text-decoration:
+  none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>The price of
+  one country's currency expressed in another country's currency. In other
+  words, the rate at which one currency can be exchanged for another.</span></a></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>FACE
+  VALUE</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:
+  0'>The nominal value or dollar value of a security stated by the
+  issuer.&nbsp;For stocks, it is the original cost of the stock shown on the
+  certificate. For bonds, it is the amount paid to the holder at
+  maturity&nbsp;(generally $1,000).&nbsp;Also known as &quot;par value&quot; or
+  simply &quot;par&quot;.</span></a></td>
+
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>FIXED
+  INCOME</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>Individuals who live on set amounts of periodically paid income
+  face the risk that inflation will erode their spending power. Fixed-income
+  investors receive similar set, regular payments that&nbsp;face the
+  same&nbsp;inflation risk.The most common type of fixed-income security is the
+  bond; bonds are issued by federal governments, local municipalities or major
+  corporations.</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>FOREX</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The foreign-exchange (&quot;<font class=font613460>forex</font><font
+  class=font513460>&quot; or &quot;FX&quot;) market is the place where
+  currencies are traded. The </font><font class=font613460>forex market</font><font
+  class=font513460> is the largest, most liquid market in the world with an
+  average traded value that exceeds $1.9&nbsp;trillion per day.</font></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>FORWARD
+  CONTRACT</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A <font class=font613460>cash</font><font class=font513460>
+  market transaction in which delivery of the </font><font class=font613460>commodity</font><font
+  class=font513460> is deferred until after the contract has been made.
+  Although the delivery is made in the future, the price is determined&nbsp;on
+  the initial trade date.Most forward contracts don't have standards and aren't
+  traded on exchanges. A farmer would use a forward contract to
+  &quot;lock-in&quot; a price for his grain for the upcoming fall harvest.</font></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+
+  <td height=140 class=xl2613460 style='height:105.0pt;border-top:none'>FUTURE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The primary difference between options and futures is that
+  options give the holder the right to buy or sell the underlying asset at
+  expiration, while the holder of a futures contract is obligated to fulfill
+  the terms of his/her contract.In real life, the actual delivery rate of the
+  underlying goods specified in futures contracts is very low. This is a result
+  of the fact that the hedging or speculating&nbsp;benefits of the contracts
+  can be&nbsp;had largely without actually holding the contract until expiry
+  and delivering the good(s). For example, if you were long in a futures
+  contract, you could go short the same type of contract to offset your
+  position. This serves to exit your position, much like selling a stock in the
+  equity markets would close a trade.</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>FUTURE
+  CONTRACT</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The terms &quot;futures contract&quot; and &quot;futures&quot;
+
+  refer to essentially the same thing. For example, you&nbsp;might hear
+  somebody say they bought&nbsp;&quot;oil futures&quot;, which means the same
+  thing as&nbsp;&quot;oil futures contract&quot;. If you want to get really
+  specific, you could say that a futures contract refers only to the specific
+  characteristics of the underlying asset, while &quot;futures&quot; is more
+  general and can also refer to the overall market as in: &quot;He's a&nbsp;futures
+  trader.&quot;</td>
+ </tr>
+ <tr class=xl2513460 height=20 style='height:15.0pt'>
+
+  <td height=20 class=xl2813460 style='height:15.0pt;border-top:none'>FUTURE
+  EXCHANGES in USA</td>
+  <td class=xl3313460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>&nbsp;</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>GAAP</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The common set of <font class=font613460>accounting</font><font
+  class=font513460> principles, standards and procedures that companies use to
+  compile their </font><font class=font613460>financial statements</font><font
+  class=font513460>. GAAP are a combination of authoritative standards (set by
+  policy boards) and simply the commonly accepted ways of recording and
+  reporting accounting information.</font></td>
+
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>GLOBAL
+  FUND</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A <font class=font613460>mutual fund</font><font
+  class=font513460> that can </font><font class=font613460>invest in companies</font><font
+  class=font513460> located anywhere in the world, including your own country.</font></td>
+ </tr>
+
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>GROWTH
+  FUND</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:
+  0'>A diversified portfolio of stocks that has capital appreciation as its
+  primary goal, and thereby invests in companies that reinvest their
+  earnings&nbsp;into expansion, acquisitions, and/or research and development.</span></a></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>HEDGE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>An example of a hedge&nbsp;would be if&nbsp;you owned a stock,
+  then sold&nbsp;a futures contract stating that you will sell your stock at a
+  set price, therefore avoiding market fluctuations.Investors use this strategy
+  when they are unsure of what the market will do. A perfect hedge reduces your
+  risk to nothing (except for the cost of the hedge).</td>
+
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>HEDGE
+  FUND</td>
+  <td class=xl3213460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>hedge funds<font class=font513460> are most often set up as
+  private investment partnerships that are&nbsp;open to a limited number of
+  investors and require a very large&nbsp;initial&nbsp;minimum
+  investment.&nbsp;Investments in&nbsp;hedge </font><font class=font613460>funds</font><font
+  class=font513460> are&nbsp;illiquid as they often require investors keep
+  their money in the fund for a minimum period of at least one year.You can
+  think of hedge funds as mutual funds for the super-rich. </font></td>
+
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>INSTRUMENT</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A tradeable asset or negotiable item such as a security,
+  commodity, derivative or index, or any&nbsp;item&nbsp;that underlies a
+  derivative. An&nbsp;instrument is a&nbsp;means by which something of value is
+  transferred, held or accomplished.</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>INTEREST
+  RATE</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="The monthly effective rate paid (or received, if you are a creditor) on borrowed money. Expressed as a percentage of the sum borrowed.Borrowing $1,000 at a 6% interest rate means that you would pay $60 in interest. "><a
+  href="" target="_blank"><span style='color:windowtext;text-decoration:none;
+  font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>The monthly
+  effective rate paid (or received, if you are a creditor) on borrowed money.
+  Expressed as a percentage of the sum borrowed.Borrowing $1,000 at a 6%
+  interest rate means that you would pay $60 in interest. </span></a></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>INTERNATIONAL
+  FUND</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A mutual fund that can invest in companies located anywhere
+  outside of your own country. International funds, which attempt to provide
+  investors with a diversified portfolio spanning the globe, or country funds,
+  which&nbsp;provide investors with diversified exposure to companies in one
+  specific nation.</td>
+
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>INVESTMENT
+  BANK</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:
+  0'>The role of the investment bank begins with pre-underwriting counseling
+  and continues after the distribution of securities in the form of advice.</span></a></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>IPO</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The process of selling <font class=font613460>shares</font><font
+  class=font513460> that were formerly privately held to new investors for the
+  first time. Otherwise known as an </font><font class=font613460>initial
+  public offering</font><font class=font513460> (IPO).</font></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>ISIN</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>All internationally traded securities issuers are urged to use
+  this numbering scheme, which is now the accepted standard by virtually all
+  countries. The United States and Canada primarily use a similar scheme known
+  as a CUSIP number.</td>
+
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>ISSUER</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:
+  0'>Say ABC Corp. sells common shares to the general public&nbsp;on the
+  market&nbsp;in order to generate capital to finance its
+  business&nbsp;operations. This means ABC Corp. is an issuer,&nbsp;and it's
+  therefore required to file with regulators, such as the Securities and
+  Exchange Commission, disclosing relevant financial&nbsp;information about the
+  company.&nbsp;ABC must also meet any legal obligations or regulations&nbsp;in
+  the jurisdiction where it&nbsp;issued the security.&nbsp;</span></a></td>
+
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl2613460 style='height:75.0pt;border-top:none'>LIMIT
+  ORDER</td>
+  <td class=xl3713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>An order placed with a brokerage to buy or sell a set number of
+  shares at a specified price or better. Limit orders also allow an investor to
+  limit the length of time an order can be outstanding before being canceled.
+  Limit orders typically cost more than market orders. Despite this, limit
+  orders are beneficial because when the trade goes through, investors get the
+  specified purchase or sell price. Limit orders are especially useful on a
+  low-volume or highly volatile stock.</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>LIQUID
+  MARKET</td>
+
+  <td class=xl3713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A market with many bid or ask offers. The market is
+  characterized by high liquidity, low spreads, low volatility. Changes in
+  supply or demand have a smaller impact on price. A liquid market is the
+  opposite of a thin market.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>MARKET
+  ORDER</td>
+  <td class=xl3513460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:Arial, sans-serif;mso-font-charset:0'>An
+  order to buy or sell a stock immediately at the best available current price.</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>MARKET
+  VALUE</td>
+  <td class=xl2913460 style='border-top:none;border-left:none'>The current
+  quoted price at which investors buy or sell a share of common stock or a bond
+  at a given time.</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl2613460 style='height:27.0pt;border-top:none'>MARKETON
+  CLOSE -MOC</td>
+  <td class=xl3613460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A market order to be executed as near to the end of the exchange
+  day as possible. Also known as an &quot;at-the-close order.&quot;</td>
+
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>MATURITY</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:
+  0'>The length of time until the principal amount of a bond must be repaid.</span></a></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>MUTUAL
+  FUND</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A security that gives small investors access to a
+  well-diversified portfolio of equities, bonds and other securities. Each
+  shareholder participates in the gain or loss of the fund. Shares are issued
+  and can be redeemed as needed.</td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl2613460 style='height:90.0pt;border-top:none'>NASDAQ</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The term &quot;Nasdaq&quot; used to be capitalized
+  &quot;NASDAQ&quot; as an acronym for National Association of Securities
+  Dealers Automated Quotation. In recent times, the acronym was dropped, and
+  Nasdaq is now used as a proper noun.The Nasdaq is traditionally home to many
+  high-tech stocks. The big ones include Microsoft, Intel, Dell and Cisco.The
+  Nasdaq is a computerized system that facilitates trading and provides price
+  quotations on some 5,000 of the more actively traded over-the-counter stocks.
+  Created in 1971, the Nasdaq was the world's first electronic stock market.</td>
+
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl2613460 style='height:75.0pt;border-top:none'>NASDAQ
+  100 INDEX</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="Individual investors are able to gain exposure to the Nasdaq 100 index by purchasing exchange traded funds (ETFs)&nbsp;that are specifically designed to track&nbsp;its performance. The most popular of these ETFs is known as the QQQQ.An index composed of the 100 largest, most actively traded U.S companies listed on the Nasdaq stock exchange. This index includes companies from a broad range of  industries with the exception of  those that operate in the financial industry, such as banks and investment companies. ">Individual
+  investors are able to gain exposure to the Nasdaq 100 index by purchasing
+  exchange traded funds (ETFs)&nbsp;that are specifically designed to
+  track&nbsp;its performance. The most popular of these ETFs is known as the
+  QQQQ.An index composed of the 100 largest, most actively traded U.S companies
+  listed on the Nasdaq stock exchange. This index includes companies from a
+  broad range of<span style="mso-spacerun: yes">  </span>industries with the
+  exception of<span style="mso-spacerun: yes">  </span>those that operate in
+  the financial industry, such as banks and investment companies. </td>
+ </tr>
+
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl2613460 style='height:105.0pt;border-top:none'>NASDAQ
+  COMPOSITE INDEX</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A market-capitalization weighted index of the more than
+  3,000&nbsp;common&nbsp;equities&nbsp;listed on the <font class=font613460>Nasdaq
+  stock exchange</font><font class=font513460>. The types of securities in the
+  index include American depository receipts, common stocks, real </font><font
+  class=font613460>estate investment trusts</font><font class=font513460>
+  (REITs) and tracking stocks. The index includes all Nasdaq listed stocks that
+  are not derivatives, preferred shares, funds, exchange-traded funds
+  (ETFs)&nbsp;or debentures.Unlike other market indexes, the Nasdaq composite
+  is not limited to companies that have U.S. headquarters. It is very common to
+  hear that the closing price of the Nasdaq Composite Index reported in the
+  financial press, or as a component of the evening news</font></td>
+
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>NET ASSET
+  VALUE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>In the context of mutual funds, the total value of the fund's
+  portfolio less liabilities. The NAV is usually calculated on a daily basis.</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>NYSE</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="The NYSE uses floor traders (people) to make trades, whereas the Nasdaq and many other exchanges are computer driven.A corporation, operated by a board of directors, responsible for listing securities, setting policies and supervising the stock exchange and its member activities. The NYSE also oversees the transfer of members' seats on the Exchange, judging whether a potential applicant is qualified to be a specialist. ">The
+  NYSE uses floor traders (people) to make trades, whereas the Nasdaq and many
+  other exchanges are computer driven.A corporation, operated by a board of
+  directors, responsible for listing securities, setting policies and
+  supervising the stock exchange and its member activities. The NYSE also
+  oversees the transfer of members' seats on the Exchange, judging whether a
+  potential applicant is qualified to be a specialist. </td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>OPTION</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="A privilege sold by one party to another that offers the buyer the right, but not the obligation, to buy (call) or sell (put) a security at an agreed-upon price during a certain period of time or on a specific date.Options are extremely versatile securities that can be used in many different ways. Traders use options to speculate, which is a relatively risky practice, while hedgers use options to reduce the risk of holding an asset. ">A
+  privilege sold by one party to another that offers the buyer the right, but
+  not the obligation, to buy (call) or sell (put) a security at an agreed-upon
+  price during a certain period of time or on a specific date.Options are
+  extremely versatile securities that can be used in many different ways.
+  Traders use options to speculate, which is a relatively risky practice, while
+  hedgers use options to reduce the risk of holding an asset. </td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+
+  <td height=20 class=xl2813460 style='height:15.0pt;border-top:none'>OPTION
+  EXCHANGES in USA</td>
+  <td class=xl2813460 style='border-top:none;border-left:none'>&nbsp;</td>
+ </tr>
+ <tr height=36 style='height:27.0pt'>
+  <td height=36 class=xl2613460 style='height:27.0pt;border-top:none'>ORDER</td>
+  <td class=xl3613460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="The instruction, by a customer to a brokerage for the purchase or sale of a security with specific conditions. There are several different types of orders, each offering different conditions. ">The
+  instruction, by a customer to a brokerage for the purchase or sale of a
+  security with specific conditions. There are several different types of
+  orders, each offering different conditions. </td>
+ </tr>
+
+ <tr height=87 style='height:65.25pt'>
+  <td height=87 class=xl2613460 style='height:65.25pt;border-top:none'>PINK
+  SHEETS</td>
+  <td class=xl3613460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A daily publication compiled by the National Quotation
+  Bureau&nbsp;with bid and ask prices of over-the-counter <font
+  class=font813460>stocks</font><font class=font713460>,&nbsp;including the
+  market makers who trade them.&nbsp;Unlike companies on a </font><font
+  class=font813460>stock exchange</font><font class=font713460>, companies
+  quoted on the pink sheets system do not need to meet minimum requirements or
+  file with the SEC. Pink&nbsp;sheets&nbsp;also refers to OTC trading.The pink
+  sheets got their name because they were actually printed on pink paper. You
+  can tell if a company trades on the pink sheets because the stock symbol will
+  end in &quot;.PK&quot;. </font></td>
+
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>PORTFOLIO</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="To reduce their risk, investors tend to hold more than just a single stock or other asset. Think of the portfolio as a pie: each&nbsp;piece is divided up into specific assets such as bonds, equities, etc.The group of assets - such as stocks, bonds and mutuals - held by an investor. ">To
+  reduce their risk, investors tend to hold more than just a single stock or
+  other asset. Think of the portfolio as a pie: each&nbsp;piece is divided up
+  into specific assets such as bonds, equities, etc.The group of assets - such
+  as stocks, bonds and mutuals - held by an investor. </td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>PORTFOLIO
+  MANAGER</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The person responsible for investing a <font class=font613460>mutual
+  fund's</font><font class=font513460> assets, implementing its </font><font
+  class=font613460>investment strategy</font><font class=font513460>, and
+  managing the day-to-day portfolio trading.The portfolio manager is one of the
+  most important factors to consider when looking at a mutual fund.</font></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>PORTFOLIO
+  TRADER</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="A commodities trader who holds a long position for the long term. The long term in the commodities markets is usually five to seven months. "><a
+  href="" target="_blank"><span style='color:windowtext;text-decoration:none;
+  font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>A commodities
+  trader who holds a long position for the long term. The long term in the
+  commodities markets is usually five to seven months. </span></a></td>
+
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>PREFERRED
+  STOCK</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A class of ownership in a corporation that has a&nbsp;higher
+  claim on the assets and earnings than common <font class=font613460>stock</font><font
+  class=font513460>. </font><font class=font613460>Preferred stock</font><font
+  class=font513460> generally has a dividend that must be paid out before
+  dividends to common stockholders and the shares&nbsp;usually do not&nbsp;have
+  voting rights.</font></td>
+
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>PRICE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="when price goes up, yield goes down and vice versa. Technically, you'd say the bond's price and its yield are inversely related ">when
+  price goes up, yield goes down and vice versa. Technically, you'd say the
+  bond's price and its yield are inversely related </td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>PRIMARY
+  MARKET</td>
+
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="The market in which investors have the first opportunity to buy a newly issued security.After the first purchases, subsequent trading is said to occur in the secondary market. "><a
+  href="" target="_blank"><span style='color:windowtext;text-decoration:none;
+  font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>The market in
+  which investors have the first opportunity to buy a newly issued
+  security.After the first purchases, subsequent trading is said to occur in
+  the secondary market. </span></a></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>RATING</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="An analyst's recommendation on whether to buy, sell or hold a specific stock.Bonds are rated by various organizations such as S&amp;P and Moody's. Ratings range from AAA or Aaa (the highest), to C or D, which represents a company that has already defaulted. ">An
+  analyst's recommendation on whether to buy, sell or hold a specific
+  stock.Bonds are rated by various organizations such as S&amp;P and Moody's.
+  Ratings range from AAA or Aaa (the highest), to C or D, which represents a
+  company that has already defaulted. </td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>REDEMPETION</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:
+  0'>Redemption of mutual fund shares from a mutual fund company must occur
+  within seven days of receiving a request for redemption from the investor.The
+  return of an investor's principal in a security, such as a stock, bond, or
+  mutual fund</span></a></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl2613460 style='height:75.0pt;border-top:none'>REGIONAL
+  FUNDS</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:
+  0'>A mutual fund that confines itself to investments in securities from a
+  specified geographical area, such as Latin America, Europe or Asia. A
+  regional mutual fund will generally look to own&nbsp;a diversified portfolio
+  of&nbsp;companies based in and operating out of its specified geographical
+  area. However, some&nbsp;regional funds can also be set up to invest&nbsp;in
+  a specific segment of the region's economy, such
+  as&nbsp;energy.&nbsp;Regional funds select securities that pass geographical
+  criteria.</span></a></td>
+
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>RESTRICTED
+  STOCK</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>Insider holdings that are under some other kind of sales
+  restriction. Restricted <font class=font613460>stock</font><font
+  class=font513460> must be traded in compliance with special </font><font
+  class=font613460>SEC regulations</font><font class=font513460>.</font></td>
+ </tr>
+
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>RETURN</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="The gain or loss&nbsp;of a security in a particular period. The return consists of the&nbsp;income&nbsp;and the&nbsp;capital gains relative&nbsp;on an&nbsp;investment. It is usually quoted as a percentage.The general rule is that the more risk you take, the greater the potential for higher return - and loss. ">The
+  gain or loss&nbsp;of a security in a particular period. The return consists
+  of the&nbsp;income&nbsp;and the&nbsp;capital gains relative&nbsp;on
+  an&nbsp;investment. It is usually quoted as a percentage.The general rule is
+  that the more risk you take, the greater the potential for higher return -
+  and loss. </td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>RIC</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>Regulated Investment Company. A mutual fund or real estate
+  investment trust that is eligible to pass the taxes on capital gains,
+  dividends, or interest payments onto the clients or individual investors.This
+  is done to help avoid &quot;double taxing&quot; for investment distributions.</td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl2613460 style='height:90.0pt;border-top:none'>RISK</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="The chance that an investment's actual return&nbsp;will be&nbsp;different&nbsp;than expected. This includes the possibility of losing some or all of the original investment. It is usually measured by calculating the standard deviation&nbsp;of the&nbsp;historical returns or average returns&nbsp;of a specific investment.For example, a U.S. Treasury bond is considered to be one of the safest investments and, when compared to a corporate bond, provides a lower rate of return. The reason for this is that a corporation is much more likely to go bankrupt than the U.S. government. Because the risk of investing in a corporate bond is higher, investors are offered a higher rate of return. "><a
+  href="" target="_blank"><span style='color:windowtext;text-decoration:none;
+  font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>The chance that an
+  investment's actual return&nbsp;will be&nbsp;different&nbsp;than expected.
+  This includes the possibility of losing some or all of the original
+  investment. It is usually measured by calculating the standard
+  deviation&nbsp;of the&nbsp;historical returns or average returns&nbsp;of a
+  specific investment.For example, a U.S. Treasury bond is considered to be one
+  of the safest investments and, when compared to a corporate bond, provides a
+  lower rate of return. The reason for this is that a corporation is much more
+  likely to go bankrupt than the U.S. government. Because the risk of investing
+  in a corporate bond is higher, investors are offered a higher rate of return.
+  </span></a></td>
+
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>S&amp;P
+  INDEX</td>
+  <td class=xl2613460 style='border-top:none;border-left:none'>A financial
+  service company that rates stocks and corporate and municipal bonds according
+  to risk profiles.</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>SEC
+  (Security and Exchange Commission)</td>
+
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:
+  0'>A government commission created by Congress to regulate the securities
+  markets and protect investors.Here's an example of an activity that falls
+  within the SEC's domain: if someone purchases more than 5% of a company's
+  equity, they must report to the SEC within 10 days of the purchase because of
+  the takeover threats it may cause. The SEC is composed of five commissioners
+  appointed by the U.S. President and approved by the Senate.</span></a></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>SECONDARY
+  MARKET</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="A market on which an investor purchases an asset from another investor rather than an issuing corporation.A good example is the New York Stock Exchange. Here all stock exchanges are part of the secondary market, as investors buy securities from other investors instead of an issuing company. "><a
+  href="" target="_blank"><span style='color:windowtext;text-decoration:none;
+  font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>A market on which
+  an investor purchases an asset from another investor rather than an issuing
+  corporation.A good example is the New York Stock Exchange. Here all stock
+  exchanges are part of the secondary market, as investors buy securities from
+  other investors instead of an issuing company. </span></a></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>SECURITY</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>An instrument representing ownership (<font class=font613460>stocks</font><font
+  class=font513460>), a </font><font class=font613460>debt</font><font
+  class=font513460> agreement (bonds), or the rights to ownership
+  (derivatives).A security is essentially a contract that can be assigned a
+  value and traded. Examples of a security include a note, stock, preferred
+  share, bond, debenture, option, future, swap, right, warrant, or virtually
+  any other financial asset. </font></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>SEDOL</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>(Stock Exchange Daily Official List) An identification code,
+  consisting of seven alphanumeric characters, that is assigned to all <font
+  class=font613460>securities</font><font class=font513460> </font><font
+  class=font613460>trading</font><font class=font513460> on the
+  London&nbsp;Stock Exchange and on other smaller exchanges in the U.K.U.K.
+  stocks that do not trade in the U.S. can be identified by their SEDOL code.</font></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>SETTLEMENT
+  DATE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="The date by which an executed security trade must be settled. That is, the date by which a buyer must pay for the securities delivered by the seller.The settlement date for stocks and bonds is usually three business days after the trade was executed. For government securities and options, the settlement date is usually the next business day. ">The
+  date by which an executed security trade must be settled. That is, the date
+  by which a buyer must pay for the securities delivered by the seller.The
+  settlement date for stocks and bonds is usually three business days after the
+  trade was executed. For government securities and options, the settlement
+  date is usually the next business day. </td>
+
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>SHARE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="Certificates representing ownership in a corporation.Shares are also known as stocks or equities. ">Certificates
+  representing ownership in a corporation.Shares are also known as stocks or
+  equities. </td>
+ </tr>
+ <tr height=104 style='height:78.0pt'>
+  <td height=104 class=xl2613460 style='height:78.0pt;border-top:none'>SHORT
+  SALE</td>
+
+  <td class=xl3513460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:Arial, sans-serif;mso-font-charset:0'>A
+  market transaction in which an investor sells borrowed securities in
+  anticipation of a price decline and is required to return an equal amount of
+  shares at some point in the future.The payoff to selling short is the
+  opposite of a long position. A short seller will make money if the stock goes
+  down in price, while a long position makes money when the stock goes up. The
+  profit that the investor receives is equal to the value of the sold borrowed
+  shares less the cost of repurchasing the borrowed shares.<br>
+  </span></a></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl2613460 style='height:90.0pt;border-top:none'>SOFT
+  DOLLORS</td>
+  <td class=xl3013460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:black;text-decoration:
+  none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>A means of
+  paying brokerage firms for their services through commission revenue, as
+  opposed to through normal payments (hard-dollar fees).Let's say that Cory's
+  Large-Cap Value Fund wants to buy some research from XYZ brokerage firm.
+  Cory's may agree to spend at least $10,000 in commissions at the firm in
+  return for research from the brokerage. This would represent a soft dollar
+  payment.<span style="mso-spacerun: yes">  </span>Alternatively, if Cory's
+  wanted to simply buy the research and not agree to any kind of soft dollar
+  fee, he might have to pay the brokerage $7,000 in &quot;hard dollars&quot;
+
+  (cash) for the transaction.</span></a></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl2613460 style='height:105.0pt;border-top:none'>STOCK</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A type of security that&nbsp;signifies ownership in a
+  corporation&nbsp;and represents a claim&nbsp;on part of
+  the&nbsp;corporation's assets and earnings.There are two main types of stock:
+  common and preferred. Common stock usually entitles the owner to vote at
+  shareholders' meetings and to receive dividends. Preferred stock generally
+  does not have voting rights, but has a higher claim on assets and earnings
+  than the common shares.For example, one firm may have a lower fixed interest
+  rate, while another has access to a lower floating interest rate. These firms
+  could swap to take advantage of the lower rates. For example, if a company
+  has 1,000 shares of stock outstanding and one person owns 100 shares, that
+  person would own and have claim to 10% of the company's assets.</td>
+
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>STOCK
+  SYMBOL</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:"Trebuchet MS", sans-serif;mso-font-charset:
+  0'>A unique series of letters assigned to a security for trading purposes.
+  NYSE and AMEX listed stocks have three characters or less. Nasdaq-listed
+  securities have four or five characters. If a fifth letter appears, it
+  identifies the security as other than a single issue of common
+  stock.&nbsp;They are also known as &quot;ticker symbols&quot;.</span></a></td>
+ </tr>
+ <tr height=87 style='height:65.25pt'>
+
+  <td height=87 class=xl2613460 style='height:65.25pt;border-top:none'
+  x:str="STOP ORDER ">STOP ORDER </td>
+  <td class=xl3613460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>An order to buy or sell a security when its price surpasses a
+  particular point, thus ensuring a greater probability of achieving a
+  predetermined entry or exit price, limiting the investor's loss or locking in
+  his or her profit. Once the price surpasses the predefined entry/exit point,
+  the stop order becomes a market order. Investors commonly use a stop order
+  before leaving for holidays or entering a situation where they are unable to
+  monitor their portfolio for an extended period.</td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl2613460 style='height:75.0pt;border-top:none'>SWAPS</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>Traditionally, the exchange of one security for another to
+  change the maturity (bonds), quality of issues (<font class=font613460>stocks
+  or bonds</font><font class=font513460>), or because investment objectives
+  have changed. Recently, swaps have grown to include currency swaps and </font><font
+  class=font613460>interest rate</font><font class=font513460> swaps.If firms
+  in separate countries have comparative advantages on interest rates, then a
+  swap could benefit both firms. <br>
+
+  </font></td>
+ </tr>
+ <tr height=53 style='height:39.75pt'>
+  <td height=53 class=xl2613460 style='height:39.75pt;border-top:none'>T+1
+  (T+2, T+3)</td>
+  <td class=xl3513460 width=693 style='border-top:none;border-left:none;
+  width:520pt'><a href="" target="_blank"><span style='color:windowtext;
+  text-decoration:none;font-family:Arial, sans-serif;mso-font-charset:0'>Abbreviations
+  that refer to the settlement date of security transactions.&nbsp;The T stands
+  for transaction date, which is&nbsp;the day the transaction takes
+  place.&nbsp;The numbers 1, 2 or 3&nbsp;denote how many days after the
+  transaction date the settlement or the transfer of&nbsp;&nbsp;money and
+  security ownership takes place.&nbsp;</span></a></td>
+
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl2613460 style='height:90.0pt;border-top:none'>T-BILL</td>
+  <td class=xl3113460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="A short-term debt obligation backed by the U.S. government with a maturity of less than one year.let's say you buy a 13-week T-bill priced at $9,800. Essentially, the U.S. government (and its nearly bulletproof credit rating) writes you an IOU for $10,000 that it agrees to pay back in three months. You will not receive regular payments as you would with a coupon bond, for example. Instead, the appreciation - and, therefore, the value to you - comes from the difference between the discounted value you originally paid and the amount you receive back ($10,000). In this case, the T-bill pays a 2.04% interest rate ($200/$9,800 = 2.04%) over a three-month period. "><a
+  href="" target="_blank"><span style='color:windowtext;text-decoration:none;
+  font-family:"Trebuchet MS", sans-serif;mso-font-charset:0'>A short-term debt
+  obligation backed by the U.S. government with a maturity of less than one
+  year.let's say you buy a 13-week T-bill priced at $9,800. Essentially, the
+  U.S. government (and its nearly bulletproof credit rating) writes you an IOU
+  for $10,000 that it agrees to pay back in three months. You will not receive
+  regular payments as you would with a coupon bond, for example. Instead, the
+  appreciation - and, therefore, the value to you - comes from the difference
+  between the discounted value you originally paid and the amount you receive
+  back ($10,000). In this case, the T-bill pays a 2.04% interest rate
+  ($200/$9,800 = 2.04%) over a three-month period. </span></a></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>T-BOND</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A marketable, fixed-interest U.S. government debt security with
+  a maturity of&nbsp;more than&nbsp;10 years.Treasury bonds are issued with a
+  minimum denomination of $1,000. The bonds are initially sold through auction
+  in which the maximum purchase amount is $5 million if the bid is
+  non-competitive or 35% of the offering if the bid is competitive.</td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl2613460 style='height:75.0pt;border-top:none'>TICKER
+  SYMBOL</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>When a company issues <font class=font613460>securities</font><font
+  class=font513460> to the public marketplace,&nbsp;it selects an available </font><font
+  class=font613460>ticker symbol</font><font class=font513460> for its
+  securities which investors use to place trade orders.Stock symbols are the
+  most recognized type of ticker symbol.Ticker symbols for options are
+  structured to represent the underlying stock ticker they are based on and
+  also their expiration date and contract type (either a put or a call option).
+  Mutual fund ticker symbols are usually alphanumeric and end with the letter X
+  to differentiate them from stock symbols. </font></td>
+
+ </tr>
+ <tr height=104 style='height:78.0pt'>
+  <td height=104 class=xl2613460 style='height:78.0pt;border-top:none'>TIME IN
+  FORCE</td>
+  <td class=xl3513460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="A special instruction used&nbsp;when placing a trade&nbsp;to indicate how long an order will remain active before it is executed or expires. Time-in-force options allow&nbsp;traders to be more specific&nbsp;about&nbsp;the time parameters in which an order is activated. This is especially important for active traders.Time-in-force options will depend on your broker. Most often, they include options such as day order, good 'till canceled, fill or kill, etc. For example, a day order, as the name implies, is valid for the current trading day. Good 'till canceled orders, on the other hand, will remain live until they are canceled. "><a
+  href="" target="_blank"><span style='color:windowtext;text-decoration:none;
+  font-family:Arial, sans-serif;mso-font-charset:0'>A special instruction
+  used&nbsp;when placing a trade&nbsp;to indicate how long an order will remain
+  active before it is executed or expires. Time-in-force options
+  allow&nbsp;traders to be more specific&nbsp;about&nbsp;the time parameters in
+  which an order is activated. This is especially important for active
+  traders.Time-in-force options will depend on your broker. Most often, they
+  include options such as day order, good 'till canceled, fill or kill, etc.
+  For example, a day order, as the name implies, is valid for the current
+  trading day. Good 'till canceled orders, on the other hand, will remain live
+  until they are canceled. </span></a></td>
+ </tr>
+
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2613460 style='height:15.0pt;border-top:none'>TRADE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A transaction involving the sale and purchase of a security.</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl2613460 style='height:30.0pt;border-top:none'>TRADE
+  DATE</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'
+  x:str="The date on which a security trade occurs.This differs from the settlement date, which is usually between one and five days after the trade date, depending on the transaction type. ">The
+  date on which a security trade occurs.This differs from the settlement date,
+  which is usually between one and five days after the trade date, depending on
+  the transaction type. </td>
+
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2913460 style='height:15.0pt;border-top:none'>TRADER</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>traders often manage other people's money or simply trade with
+  their own</td>
+ </tr>
+ <tr height=138 style='height:103.5pt'>
+  <td height=138 class=xl2613460 style='height:103.5pt;border-top:none'>TRADING
+  DESK</td>
+
+  <td class=xl3613460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A desk where transactions for buying and selling securities
+  occur. Trading desks can be found in most organizations (banks, finance
+  companies, etc.) involved in&nbsp;trading <font class=font813460>investment</font><font
+  class=font713460> instruments such&nbsp;as&nbsp;equities, fixed-income
+  securities, futures, commodities and </font><font class=font813460>foreign
+  exchange</font><font class=font713460>.&nbsp;A trading desk provides traders
+  with access to instantaneous trade executions. Also known as &quot;dealing
+  desk&quot;.Trading desks can be either large or small depending on the
+  organization and are occupied by licensed traders, usually specializing in
+  trading one particular type of investment product (e.g. forex traders,
+  commodities traders, stock traders, etc.). The instantaneous trade executions
+  can be particularly important for day traders looking for arbitrage
+  opportunities that usually last only minutes or even seconds.<span
+  style="mso-spacerun: yes">  </span></font></td>
+ </tr>
+
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl2613460 style='height:60.0pt;border-top:none'>TRANSACTION</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>An agreement between a buyer and a seller&nbsp;for the
+  exchange&nbsp;of&nbsp;goods or services for payment.The parties participating
+  in a transaction have an obligation to perform their part. For example, for
+  two parties involved in a futures contract, the seller is obligated to sell
+  and deliver the underlying asset and the buyer is contractually obligated to
+  pay the agreed upon price and accept the delivery.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2913460 style='height:15.0pt;border-top:none'>TRANSACTION
+  TYPE</td>
+
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>Stocks , pay up, pay down, common stock, rights, warrant and so
+  on</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2913460 style='height:15.0pt;border-top:none'>TYPES OF
+  BONDS</td>
+  <td class=xl2613460 style='border-top:none;border-left:none'>Bills(&lt;1yr);
+  Notes(&lt;10 yr); Bonds(&gt;10yrs); Municipal bond(non-tax; ); Corporate
+  bonds(Company issued like callable bo<span style='display:none'>nd(Redeem
+  before maturity); convertible bonds(Convert to stock));Zero-coupon bond(no
+  coupon but issued at discount to par value)</span></td>
+
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl2913460 style='height:15.0pt;border-top:none'>TYPES OF
+  STOCKS</td>
+  <td class=xl2613460 style='border-top:none;border-left:none'>PREFERRED &amp;
+  COMMON STOCKS</td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+
+  <td height=140 class=xl2613460 style='height:105.0pt;border-top:none'>UNDER
+  WRITER</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A company or other entity&nbsp;that&nbsp;administers the public
+  issuance and distribution of&nbsp;securities from a corporation or other
+  issuing body.&nbsp;An underwriter works closely with the issuing body to
+  determine the offering price of the <font class=font613460>securities</font><font
+  class=font513460>, buys them from the issuer and sells them to </font><font
+  class=font613460>investors</font><font class=font513460> via the
+  underwriter's&nbsp;distribution network.Underwriters generally receive
+  underwriting fees from their issuing clients, but they also usually earn
+  profits when selling the underwritten shares to investors. However,
+  underwriters assume the responsibility of distributing a securities issue to
+  the public. If they can't sell all of the securities at the specified
+  offering price, they may be forced to sell the securities for less than they
+  paid for them, or retain the securities themselves. </font></td>
+ </tr>
+
+ <tr height=160 style='height:120.0pt'>
+  <td height=160 class=xl2613460 style='height:120.0pt;border-top:none'>VALUE
+  FUND</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>A <font class=font613460>mutual fund</font><font
+  class=font513460> that primarily holds </font><font class=font613460>value
+  stocks</font><font class=font513460>, stocks deemed to be undervalued in
+  price.There are numerous examples of value funds. Every large mutual fund
+  family has a value fund component, which are often broken down by size. For
+  example, a fund family may include small-, mid- and large-cap value funds for
+  investors to choose from.<span style="mso-spacerun: yes">   </span>The
+  premise of value investing is that the market has inherent inefficiencies
+  that enable companies to trade at levels below what the are actually worth.
+  In theory, once the market corrects these inefficiencies the value investor
+  will see the share price rise.A common misconception is that value investors
+  simply seek out low P/E stocks. Although this can be a characteristic of an
+  undervalued company, this is not the sole feature that astute value investors
+  seek. </font></td>
+ </tr>
+
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl2613460 style='height:45.0pt;border-top:none'>YIELD</td>
+  <td class=xl2713460 width=693 style='border-top:none;border-left:none;
+  width:520pt'>The rate of income generated from a <font class=font613460>stock</font><font
+  class=font513460> in the form of dividends, or the effective rate of interest
+  paid on a </font><font class=font613460>bond</font><font class=font513460>,
+  calculated by the coupon rate divided by the bond's market price. In general,
+  yield is&nbsp;the annual rate of return&nbsp; for any investment and is
+  expressed as a percentage</font></td>
+ </tr>
+
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=255 style='width:191pt'></td>
+  <td width=693 style='width:520pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
+<!----------------------------->
+</body>
+
+</html>
+
+</body></html>
